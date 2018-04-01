@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
 	int psleep = atoi(argv[3]); //sleep time for producer in ms
 	int csleep = atoi(argv[4]); //sleep time for consumer in ms
 	int items = atoi(argv[5]); //total number of data items
-
+	
 	InitProducerConsumer(p,c,psleep,csleep,items);
 
 	return 0;

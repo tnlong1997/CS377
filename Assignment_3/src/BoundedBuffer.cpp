@@ -2,9 +2,13 @@
 
 BoundedBuffer::BoundedBuffer(int N){
 	//TODO: constructor to initiliaze all the varibales declared in BoundedBuffer.h
-	buffer_empty = PTHREAD_COND_INITIALIZER;
-	buffer_lock = PTHREAD_MUTEX_INITIALIZER;
-	buffer_full = PTHREAD_COND_INITIALIZER;
+	// buffer_empty = PTHREAD_COND_INITIALIZER;
+	// buffer_lock = PTHREAD_MUTEX_INITIALIZER;
+	// buffer_full = PTHREAD_COND_INITIALIZER;
+
+	pthread_mutex_init(&buffer_lock, NULL);
+	pthread_cond_init(&buffer_empty, NULL);
+	pthread_cond_init(&buffer_full, NULL);
 
 	buffer = (int *) malloc(N * sizeof(int));
 	buffer_size = N;
