@@ -13,7 +13,11 @@ void InitProducerConsumer(int p, int c, int psleep, int csleep, int items){
 	//TODO: constructor to initialize variables declared
 	//also see instruction for implementation
   pthread_t producer_thread[p], consumer_thread[c];
-  // freopen("output.txt","w",stdout);
+  freopen("output.txt","w",stdout);
+  ps = psleep;
+  cs = csleep;
+  n = items;
+
   for (int i = 0; i < p; i++) {
     pthread_create(&producer_thread[i], NULL, producer, NULL);
   }
@@ -22,15 +26,12 @@ void InitProducerConsumer(int p, int c, int psleep, int csleep, int items){
     pthread_create(&consumer_thread[i], NULL, consumer, NULL);
   }
 
-  ps = psleep;
-  cs = csleep;
-  n = items;
   pthread_exit(NULL);
 }
 
 void* producer(void* threadID){
 	//TODO: producer thread, see instruction for implementation
-  // int* index = (int*) threadID;
+  int* index = (int*) threadID;
 
 	for(int i = 0; i < n; i++){
     sleep(ps);
@@ -45,7 +46,7 @@ void* producer(void* threadID){
 
 void* consumer(void* threadID){
 	//TODO: consumer thread, see instruction for implementation
-  // int* index = (int*) threadID;
+  int* index = (int*) threadID;
 
 	for(int i = 0; i < n; i++){
     sleep(cs);
