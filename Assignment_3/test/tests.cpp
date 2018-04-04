@@ -25,7 +25,7 @@ TEST(PCTest, Test2){
 
 //Testing ProducerConsumer for one thread
 TEST(PCTest, ProducerConsumerOneThread){
-    // InitProducerConsumer(1,1,5,1,5);
+    InitProducerConsumer(1,1,5,1,5);
 
     string producer ("Producer");
     string consumer ("Consumer");
